@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Retailer Dashboard - Edit Profile</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Poppins;background:#f0f4ff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:4%}.box{background:#fff;border-radius:18px;padding:18px;width:100%;max-width:440px;box-shadow:0 10px 30px rgba(0,0,0,.1)}.header{background:#b71c1c;color:#fff;padding:12px;border-radius:12px;margin-bottom:12px;text-align:center}input{width:100%;padding:11px;border:1.4px solid #ddd;border-radius:10px;margin:5px 0;font-family:Poppins;font-size:12px}label{font-size:11px;font-weight:700;display:block;margin-top:8px;color:#333}.btn{border:none;padding:11px;border-radius:10px;width:100%;font-weight:800;margin-top:8px;cursor:pointer;font-family:Poppins}.btn-primary{background:#1a237e;color:#fff}.btn-danger{background:#b71c1c;color:#fff}.btn-grey{background:#eee;color:#333}.idcard{border:2px dashed #b71c1c;border-radius:12px;padding:12px;background:#fff8f8;margin-bottom:10px}.tabs{display:flex;gap:6px;margin:10px 0}.tab{flex:1;padding:8px;border-radius:8px;border:none;font-size:11px;font-weight:700;cursor:pointer}.tab-active{background:#1a237e;color:#fff}.tab-inactive{background:#f0f0f0;color:#666}table{width:100%;font-size:11px;border-collapse:collapse}th{background:#1a237e;color:#fff;padding:6px;text-align:left}td{padding:6px;border-bottom:1px solid #eee}</style></head><body><div class="box"><div class="header"><b>👥 Retailer Dashboard</b><div style="font-size:9px;opacity:.9">Manav Jan Sewa Kendra - Hapur</div></div>
+
+<div id="loginDiv"><p style="font-size:11px;color:#666">🔐 Apna Registered Mobile se Login Karo</p><label>Mobile Number *</label><input id="mob" placeholder="Ex: 9837012345" type="tel" maxlength="10"><button class="btn btn-primary" onclick="doLogin()">🔓 Login Karo</button><p id="msg" style="font-size:11px;color:red;margin-top:8px"></p>
+<div style="margin-top:12px;border-top:1px solid #eee;padding-top:10px"><p style="font-size:11px;font-weight:800;color:#b71c1c">❓ ID Bhul Gaye? Forgot</p><input id="fMob" placeholder="Mobile se ID nikalo" type="tel" maxlength="10"><button class="btn btn-danger" onclick="doForgot()">🔍 ID Dhoondo</button><p id="fMsg" style="font-size:11px;margin-top:6px"></p></div>
+<div style="margin-top:10px;text-align:center;font-size:11px"><a href="/" style="color:#1a237e;font-weight:700;text-decoration:none">🏠 Home Jao</a> | <a href="/admin.html" style="color:#999;text-decoration:none">Admin</a></div></div>
+
+<div id="dash" style="display:none">
+<div class="idcard"><div style="display:flex;justify-content:space-between;align-items:center"><b id="dName" style="color:#b71c1c;font-size:14px"></b><span id="dId" style="background:#b71c1c;color:#fff;padding:3px 10px;border-radius:20px;font-size:10px"></span></div><div style="font-size:11px;margin-top:6px;line-height:1.6">📍 <span id="dCity"></span><br>📞 <span id="dMob"></span><br>📧 <span id="dEmail"></span></div><div style="font-size:10px;color:#2e7d32;margin-top:6px;font-weight:700">✅ Verified Retailer</div></div>
+
+<div class="tabs"><button id="tab1" class="tab tab-active" onclick="switchTab(1)">📦 Orders</button><button id="tab2" class="tab tab-inactive" onclick="switchTab(2)">✏️ Edit Profile</button></div>
+
+<div id="ordersTab"><div style="display:flex;gap:8px;margin-bottom:10px"><div style="flex:1;background:#e8f5e9;border-radius:10px;padding:8px;text-align:center"><div style="font-size:9px">Orders</div><b id="cO">0</b></div><div style="flex:1;background:#fff3e0;border-radius:10px;padding:8px;text-align:center"><div style="font-size:9px">Profit</div><b id="cP" style="color:#2e7d32">₹0</b></div></div><div style="overflow:auto;max-height:35vh;border:1px solid #eee;border-radius:8px"><table id="tO"><tr><th>Service</th><th>Customer</th><th>Profit</th><th>Date</th></tr></table></div></div>
+
+<div id="editTab" style="display:none"><p style="font-size:11px;color:#666;margin-bottom:8px">Apni details khud badal sakte ho, Admin ko bolne ki zarurat nahi</p><label>Apna Naam *</label><input id="eName" placeholder="ABCD KUMAR"><label>City / Jila *</label><input id="eCity" placeholder="HAPUR"><label>Email</label><input id="eEmail" placeholder="abcd@gmail.com"><label>Mobile (Change nahi hoga - ID hai)</label><input id="eMob" disabled style="background:#f5f5f5"><button class="btn btn-primary" onclick="saveProfile()">💾 Profile Save Karo</button><p id="eMsg" style="font-size:11px;margin-top:8px"></p></div>
+
+<button class="btn btn-grey" style="margin-top:12px" onclick="doLogout()">🚪 Logout</button>
+</div></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";import {getFirestore, collection, query, where, getDocs, doc, updateDoc} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyCxPIcahQPr_DJVazVxlYfQIxRLLtGaNg",authDomain:"manavjansewakendra-ee14f.firebaseapp.com",projectId:"manavjansewakendra-ee14f",storageBucket:"manavjansewakendra-ee14f.firebasestorage.app",messagingSenderId:"556803528851",appId:"1:556803528851:web:a144573f17bbc8c6627d66",measurementId:"G-E3SKR6ZC1G"};
+const app=initializeApp(firebaseConfig);const db=getFirestore(app);
+let currentDocId=null, currentData=null;
+
+window.switchTab=(n)=>{document.getElementById('ordersTab').style.display=n===1?'block':'none';document.getElementById('editTab').style.display=n===2?'block':'none';document.getElementById('tab1').className=n===1?'tab tab-active':'tab tab-inactive';document.getElementById('tab2').className=n===2?'tab tab-active':'tab tab-inactive';};
+
+window.doLogin=async()=>{
+ let m=document.getElementById('mob').value.trim();
+ if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('msg').innerText='❌ 10 digit mobile sahi dalo';return;}
+ document.getElementById('msg').innerText='⏳ Checking...';
+ try{
+  let q=query(collection(db,"retailers"),where("mobile","==",m));
+  let snap=await getDocs(q);
+  if(snap.empty){document.getElementById('msg').innerHTML='❌ ID nahi mili. <a href="/">Home se banao</a>';return;}
+  let docSnap=snap.docs[0]; currentDocId=docSnap.id; currentData=docSnap.data();
+  showDash(currentData,m);
+  // load orders
+  let q2=query(collection(db,"orders"),where("mobile","==",m));
+  let snap2=await getDocs(q2);
+  let html='<tr><th>Service</th><th>Customer</th><th>Profit</th><th>Date</th></tr>'; let tot=0;
+  if(snap2.empty){html+='<tr><td colspan=4 style="text-align:center;color:#999">Koi order nahi</td></tr>';}
+  snap2.forEach(d=>{let x=d.data(); tot+=Number(x.profit||0); html+=`<tr><td>${x.service||''}</td><td>${x.customerName||''}</td><td style="color:#2e7d32;font-weight:800">₹${x.profit||''}</td><td>${x.date||''}</td></tr>`;});
+  document.getElementById('tO').innerHTML=html; document.getElementById('cO').innerText=snap2.size; document.getElementById('cP').innerText='₹'+tot;
+ }catch(e){document.getElementById('msg').innerText='Error: '+e.message;}
+};
+
+function showDash(data,m){
+ document.getElementById('dName').innerText=data.name; document.getElementById('dCity').innerText=data.city; document.getElementById('dMob').innerText=data.mobile; document.getElementById('dId').innerText=data.retailerId; document.getElementById('dEmail').innerText=data.email||'No Email';
+ document.getElementById('eName').value=data.name||''; document.getElementById('eCity').value=data.city||''; document.getElementById('eEmail').value=data.email||''; document.getElementById('eMob').value=data.mobile||'';
+ document.getElementById('loginDiv').style.display='none'; document.getElementById('dash').style.display='block';
+}
+
+window.saveProfile=async()=>{
+ if(!currentDocId){return;}
+ let n=document.getElementById('eName').value.trim(), c=document.getElementById('eCity').value.trim(), e=document.getElementById('eEmail').value.trim();
+ if(n.length<3){document.getElementById('eMsg').innerText='❌ Naam sahi likho';return;}
+ if(c.length<2){document.getElementById('eMsg').innerText='❌ City sahi likho';return;}
+ document.getElementById('eMsg').innerText='⏳ Saving...';
+ try{
+  await updateDoc(doc(db,"retailers",currentDocId),{name:n,city:c,email:e});
+  document.getElementById('eMsg').innerHTML='✅ <b>Profile Update Ho Gaya!</b>';
+  document.getElementById('dName').innerText=n; document.getElementById('dCity').innerText=c; document.getElementById('dEmail').innerText=e||'No Email';
+  document.getElementById('eName').value=n; document.getElementById('eCity').value=c;
+ }catch(err){document.getElementById('eMsg').innerText='Error: '+err.message;}
+};
+
+window.doForgot=async()=>{
+ let m=document.getElementById('fMob').value.trim();
+ if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('fMsg').innerText='❌ Mobile sahi dalo';return;}
+ document.getElementById('fMsg').innerText='⏳ Dhoond rahe hai...';
+ try{
+  let q=query(collection(db,"retailers"),where("mobile","==",m));
+  let snap=await getDocs(q);
+  if(snap.empty){document.getElementById('fMsg').innerHTML='❌ ID nahi mili';return;}
+  let d=snap.docs[0].data(); document.getElementById('fMsg').innerHTML='✅ ID: <b>'+d.retailerId+'</b><br>Name: '+d.name+'<br>Ab upar login karo';
+ }catch(e){document.getElementById('fMsg').innerText='Error: '+e.message;}
+};
+
+window.doLogout=()=>{currentDocId=null; currentData=null; document.getElementById('dash').style.display='none'; document.getElementById('loginDiv').style.display='block'; document.getElementById('mob').value=''; document.getElementById('msg').innerText=''; document.getElementById('fMob').value=''; document.getElementById('fMsg').innerText=''; switchTab(1);};
+</script></body></html>
