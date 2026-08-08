@@ -1,121 +1,102 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Retailer Service Page - Secure</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Poppins,sans-serif;background:#f0f4ff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:3%}.box{background:#fff;border-radius:18px;padding:18px;width:100%;max-width:560px;box-shadow:0 12px 35px rgba(0,0,0,.12)}.header{background:linear-gradient(135deg,#b71c1c,#d32f2f);color:#fff;padding:14px;border-radius:12px;margin-bottom:12px;text-align:center}input,select{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin:5px 0;font-size:12px}label{font-size:11px;font-weight:700;display:block;margin-top:8px;color:#333}.btn{border:none;padding:12px;border-radius:10px;width:100%;font-weight:800;margin-top:8px;cursor:pointer;font-size:12px}.btn-primary{background:#1a237e;color:#fff}.btn-success{background:#2e7d32;color:#fff}.btn-danger{background:#b71c1c;color:#fff}.btn-grey{background:#eee;color:#333}.idcard{border:2px dashed #1a237e;border-radius:12px;padding:12px;background:#f0f4ff;margin-bottom:12px}.tabs{display:flex;gap:5px;margin:10px 0;flex-wrap:wrap}.tab{flex:1;padding:10px;border-radius:8px;border:none;font-size:11px;font-weight:800;cursor:pointer;min-width:80px}.tab-active{background:#1a237e;color:#fff}.tab-inactive{background:#f0f0f0;color:#666}.guide{background:#fff3e0;border-left:4px solid #ff9800;padding:10px;border-radius:8px;font-size:10px;margin-bottom:10px}.secure-lock{background:#e8f5e9;color:#1b5e20;padding:10px;border-radius:8px;font-size:10px;font-weight:700;text-align:center;margin-bottom:10px;border:1px solid #a5d6a7}table{width:100%;font-size:11px;border-collapse:collapse}th{background:#1a237e;color:#fff;padding:7px;text-align:left}td{padding:7px;border-bottom:1px solid #eee}.step{background:#1a237e;color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-right:6px}</style></head><body><div class="box">
-<div class="header"><b>🔐 Secure Retailer Login</b><div style="font-size:10px;opacity:.9">Manav Jan Sewa Kendra - Service Page</div><div style="font-size:8px;margin-top:4px;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:15px;display:inline-block">Mobile + Manpasand Password se hi khulega - Koi misuse nahi</div></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retailer Login - Manav Jan Sewa Kendra - Service Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#fff7ed;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:3%}
+.box{background:#fff;border-radius:18px;padding:20px;width:100%;max-width:600px;box-shadow:0 12px 35px rgba(0,0,0,.12);border:1px solid #ffedd5}
+.header{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff;padding:14px;border-radius:12px;margin-bottom:12px;text-align:center}
+input,select{width:100%;padding:11px;border:1.5px solid #fed7aa;border-radius:10px;margin:5px 0;font-size:12px}
+label{font-size:10px;font-weight:700;display:block;margin-top:8px;color:#7c2d12;text-transform:uppercase}
+.btn{border:none;padding:12px;border-radius:10px;width:100%;font-weight:700;margin-top:8px;cursor:pointer;font-size:12px}
+.btn-primary{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff}.btn-success{background:#16a34a;color:#fff}.btn-grey{background:#f1f5f9;color:#334155}
+.idcard{border:2px solid #ea580c;border-radius:12px;padding:12px;background:#fff7ed;margin-bottom:12px}
+.tabs{display:flex;gap:5px;margin:10px 0;flex-wrap:wrap}.tab{flex:1;padding:10px;border-radius:8px;border:none;font-size:11px;font-weight:700;cursor:pointer;min-width:80px}.tab-active{background:#9a3412;color:#fff}.tab-inactive{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+table{width:100%;font-size:11px;border-collapse:collapse}th{background:#9a3412;color:#fff;padding:8px;text-align:left}td{padding:8px;border-bottom:1px solid #ffedd5}
+</style></head><body>
+<div class="box">
+<div class="header">
+<img src="logo.png" style="width:50px;height:50px;border-radius:50%;background:#fff;padding:2px;margin-bottom:6px" onerror="this.style.display='none'">
+<div><b>MANAV JAN SEWA KENDRA</b><div style="font-size:10px;opacity:.9">Retailer Dashboard - 40+ Services - Service Page</div></div>
+</div>
 
 <div id="loginDiv">
-<div class="secure-lock">🔒 Ab Mobile No. se ID nahi khulegi - Sirf Aapke Manpasand Password se khulegi! OTP jaisa Secure!</div>
-<label>📱 Mobile Number *</label><input id="mob" placeholder="10 digit mobile" type="tel" maxlength="10">
-<label>🔑 Aapka Manpasand Password *</label><input id="pass" placeholder="Jo password banaya tha" type="password">
-<button class="btn btn-primary" onclick="doLogin()">🔐 Login Karo - Service Page Kholo</button><p id="msg" style="font-size:11px;color:red;margin-top:8px"></p>
-<div style="background:#f5f5f5;border-radius:10px;padding:12px;margin-top:12px">
-<p style="font-size:11px;font-weight:800">🔑 Password Bhul Gaye?</p><input id="fMob" placeholder="Mobile dalo" type="tel" maxlength="10"><button class="btn btn-danger" onclick="doForgot()">📲 Password Dekho - OTP Style</button><p id="fMsg" style="font-size:11px;margin-top:8px"></p></div>
-<div style="text-align:center;margin-top:10px"><a href="/" style="color:#1a237e;font-weight:700;font-size:12px">🏠 Nayi ID Banao</a></div>
+<h3 style="color:#9a3412;font-size:14px"><i class="fa-solid fa-lock"></i> Retailer Login - Service Page Access</h3>
+<p style="font-size:10px;color:#7c2d12;margin-top:4px">ID hone par yahan se Service Page open hoga - 6 Step Verified Accounts Only</p>
+<label>Mobile Number *</label><input id="mob" placeholder="10 digit mobile" type="tel" maxlength="10">
+<label>Password *</label><input id="pass" placeholder="Password" type="password">
+<button class="btn btn-primary" onclick="doLogin()">Login - Open Service Page</button><p id="msg" style="font-size:11px;color:red;margin-top:8px"></p>
+<div style="background:#fff7ed;border:1px dashed #fdba74;border-radius:12px;padding:12px;text-align:center;margin-top:12px">
+<div style="font-size:12px;font-weight:800;color:#9a3412">Naye Retailer Ho?</div>
+<div style="font-size:10px;color:#7c2d12;margin:4px 0">6 Step Verification se ID banao - Aadhaar + PAN Verified - No Fake Account</div>
+<button class="btn btn-success" onclick="location.href='/'" style="font-size:12px">Retailer ID Banao - 6 Steps</button>
+</div>
+<div style="background:#f1f5f9;border-radius:10px;padding:12px;margin-top:12px">
+<p style="font-size:11px;font-weight:800">Password Bhul Gaye?</p><input id="fMob" placeholder="Mobile dalo" type="tel" maxlength="10"><button class="btn" style="background:#9a3412;color:#fff;margin-top:6px" onclick="doForgot()">Password Dekho</button><p id="fMsg" style="font-size:11px;margin-top:8px"></p></div>
 </div>
 
 <div id="dash" style="display:none">
-<div class="idcard"><div style="display:flex;justify-content:space-between;align-items:center"><b id="dName" style="color:#b71c1c;font-size:15px"></b><span id="dId" style="background:#b71c1c;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px"></span></div><div style="font-size:11px;margin-top:6px">📍 <span id="dCity"></span> | 📞 <span id="dMob"></span></div><div style="font-size:9px;color:#2e7d32;margin-top:6px;font-weight:800">🔒 Secure - Aapke Password se khula hai - Koi aur nahi khol sakta</div></div>
+<div class="idcard"><div style="display:flex;justify-content:space-between;align-items:center"><b id="dName" style="color:#9a3412;font-size:15px"></b><span id="dId" style="background:#9a3412;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px"></span></div><div style="font-size:11px;margin-top:6px">📍 <span id="dCity"></span> | 📞 <span id="dMob"></span> | 💰 Wallet: ₹<span id="dWallet"></span> | UPI: 7351801904@ptsbi</div><div style="font-size:9px;color:#16a34a;margin-top:4px"><i class="fa-solid fa-shield-check"></i> 6 Step Verified - No Fake Account - Aadhaar PAN Verified</div></div>
 
-<div class="guide"><b>👋 Retailer ko kaise pata chalega kya karna hai?</b><br><div style="margin-top:6px;line-height:1.8"><span class="step">1</span> <b>New Request</b> par click karo<br><span class="step">2</span> Service chuno (PAN, Caste etc)<br><span class="step">3</span> Customer ka naam + mobile bharo<br><span class="step">4</span> <b>Request Bhejo</b> dabao - Ho gaya!<br><span class="step">5</span> <b>My Orders</b> me apni request dekho</div></div>
+<div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:12px;margin-bottom:12px">
+<div style="font-size:12px;font-weight:800;color:#9a3412"><i class="fa-solid fa-list-check"></i> Service Use Process - ID wale ke liye</div>
+<div style="font-size:10px;color:#7c2d12;margin-top:6px;line-height:1.6">1. Service Chuno (40+ services) → 2. Customer Details Bharo → 3. Request Bhejo → 4. Status Dekho (My Orders) → 5. Profit Pao | Minimum Wallet ₹500 Required | UPI: 7351801904@ptsbi</div>
+</div>
 
-<div class="tabs"><button id="tab1" class="tab tab-active" onclick="switchTab(1)">🆕 New Request - Service</button><button id="tab2" class="tab tab-inactive" onclick="switchTab(2)">📦 My Orders</button><button id="tab3" class="tab tab-inactive" onclick="switchTab(3)">⚙️ Profile</button></div>
+<div class="tabs"><button id="tab1" class="tab tab-active" onclick="switchTab(1)">🆕 New Request (40 Services)</button><button id="tab2" class="tab tab-inactive" onclick="switchTab(2)">📦 My Orders</button><button id="tab3" class="tab tab-inactive" onclick="switchTab(3)">⚙️ Profile</button></div>
 
 <div id="newReqTab">
-<div style="background:#e3f2fd;border-radius:10px;padding:12px;margin-bottom:10px;text-align:center"><b style="font-size:13px;color:#1a237e">🎯 Yaha se Service Request Bhejo</b><br><span style="font-size:10px;color:#666">40+ Services - PAN, Caste, Income, Verification</span></div>
-<label>🔽 Service Chuno * - Kya kaam karwana hai?</label><select id="oService" style="font-size:12px;font-weight:700"><option>PAN Card - ₹150 (Aapko Profit ₹43)</option><option>Caste Certificate - ₹60 (Profit ₹30)</option><option>Income Certificate - ₹70 (Profit ₹35)</option><option>Domicile Certificate - ₹80 (Profit ₹40)</option><option>Verification - ₹10 (Profit ₹5)</option><option>Other Service - ₹100</option></select>
-<label>👤 Customer Ka Pura Naam *</label><input id="oName" placeholder="Jaise: RAMESH KUMAR">
-<label>📱 Customer Ka Mobile *</label><input id="oMob" placeholder="10 digit - Jaise: 98370XXXXX" type="tel" maxlength="10">
-<label>📝 Note / Document No. (Optional)</label><input id="oDoc" placeholder="Aadhar last 4 digit ya kuch note">
-<button class="btn btn-success" onclick="sendOrder()" style="font-size:14px;padding:14px">📤 Request Bhejo - Admin ko jayega</button><p id="oMsg" style="font-size:11px;margin-top:10px"></p>
-<div style="background:#e8f5e9;border-radius:8px;padding:8px;margin-top:10px;font-size:9px;color:#2e7d32;text-align:center">🔒 <b>Secure:</b> Aapki request sirf aapko aur Admin ko dikhegi. Koi dusra retailer delete ya ched-chad nahi kar sakta!</div>
+<label>🔽 Service Chuno (40 Services) * - ID hone par yahan se use karo</label><select id="oService" style="font-size:11px;font-weight:600">
+<option>PAN Card - ₹150 (Profit ₹43)</option><option>Aadhar Update - ₹100 (Profit ₹40)</option><option>Voter ID - ₹80 (Profit ₹30)</option><option>Caste Certificate - ₹60 (Profit ₹30)</option><option>Income Certificate - ₹70 (Profit ₹35)</option><option>Domicile Certificate - ₹80 (Profit ₹40)</option><option>Birth Certificate - ₹100 (Profit ₹45)</option><option>Death Certificate - ₹100 (Profit ₹45)</option><option>Ration Card New - ₹120 (Profit ₹50)</option><option>Ration Card Update - ₹80 (Profit ₹30)</option><option>E-Shram Card - ₹50 (Profit ₹20)</option><option>Ayushman Card - ₹50 (Profit ₹20)</option><option>Labour Card - ₹100 (Profit ₹40)</option><option>Marriage Certificate - ₹150 (Profit ₹60)</option><option>Driving License - ₹200 (Profit ₹70)</option><option>Passport - ₹300 (Profit ₹100)</option><option>Police Verification - ₹100 (Profit ₹40)</option><option>Character Certificate - ₹80 (Profit ₹30)</option><option>Affidavit - ₹80 (Profit ₹30)</option><option>ITR Filing - ₹200 (Profit ₹80)</option><option>GST Registration - ₹300 (Profit ₹120)</option><option>MSME - ₹150 (Profit ₹60)</option><option>FSSAI License - ₹250 (Profit ₹90)</option><option>Shop Act - ₹200 (Profit ₹70)</option><option>Electricity Bill - ₹20 (Profit ₹5)</option><option>Mobile Recharge - ₹10 (Profit ₹2)</option><option>Train Ticket - ₹50 (Profit ₹20)</option><option>Money Transfer - ₹20 (Profit ₹10)</option><option>PF Withdrawal - ₹150 (Profit ₹60)</option><option>E-District Services - ₹100 (Profit ₹40)</option><option>Digital Signature - ₹800 (Profit ₹300)</option><option>AEPS - ₹20 (Profit ₹8)</option><option>BBPS - ₹20 (Profit ₹5)</option><option>DMT - ₹20 (Profit ₹10)</option>
+</select>
+<label>Customer Full Name *</label><input id="oName" placeholder="Customer name">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div><label>Customer Mobile *</label><input id="oMob" maxlength="10"></div><div><label>Customer Email *</label><input id="oGmail" type="email" placeholder="customer@gmail.com"></div></div>
+<label>Reference No.</label><input id="oDoc" placeholder="Optional">
+<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:8px;margin-top:8px;font-size:10px"><b>UPI Payment:</b> 7351801904@ptsbi | <b>Wallet Min:</b> ₹500 | <b>Payment:</b> UPI QR / Debit Card / Net Banking</div>
+<button class="btn btn-success" onclick="sendOrder()">Submit Service Request</button><p id="oMsg" style="font-size:11px;margin-top:8px"></p>
 </div>
 
 <div id="ordersTab" style="display:none">
-<div style="display:flex;gap:8px;margin-bottom:10px"><div style="flex:1;background:#e8f5e9;border-radius:10px;padding:10px;text-align:center"><div style="font-size:9px">Requests</div><b id="cO">0</b></div><div style="flex:1;background:#fff3e0;border-radius:10px;padding:10px;text-align:center"><div style="font-size:9px">Profit</div><b id="cP" style="color:#2e7d32">₹0</b></div></div>
-<div style="overflow:auto;max-height:40vh;border:1px solid #eee;border-radius:10px"><table id="tO"><tr><th>Service</th><th>Customer</th><th>Status</th></tr></table></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px"><div style="background:#f0fdf4;padding:12px;border-radius:10px;text-align:center"><div style="font-size:10px">Requests</div><b id="cO">0</b></div><div style="background:#fefce8;padding:12px;border-radius:10px;text-align:center"><div style="font-size:10px">Earnings</div><b id="cP">₹0</b></div></div>
+<div style="overflow:auto;max-height:45vh;border:1px solid #fed7aa;border-radius:12px"><table id="tO"><tr><th>Service</th><th>Customer</th><th>Status</th></tr></table></div>
 </div>
 
 <div id="editTab" style="display:none">
-<label>Naam</label><input id="eName"><label>City</label><input id="eCity"><label>Email</label><input id="eEmail"><label>Mobile (No Change)</label><input id="eMob" disabled style="background:#f5f5f5"><label>🔑 Naya Password</label><input id="ePass" type="password" placeholder="Naya manpasand password"><label>Confirm</label><input id="ePass2" type="password" placeholder="Dubara"><button class="btn btn-primary" onclick="saveProfile()">💾 Secure Update</button><p id="eMsg" style="font-size:11px;margin-top:8px"></p>
+<div style="border:1px solid #fed7aa;border-radius:12px;padding:14px;background:#fff7ed">
+<div style="display:flex;justify-content:space-between"><b id="dName2"></b><span id="dId2" style="background:#9a3412;color:#fff;padding:4px 10px;border-radius:15px;font-size:10px"></span></div>
+<div style="font-size:11px;margin-top:10px;line-height:2">Full Name: <span id="dFullName"></span><br>City: <span id="dCity2"></span><br>Mobile: <span id="dMob2"></span><br>Email: <span id="dEmailSpan"></span><br>Aadhaar: <span id="dAadhaar"></span><br>PAN: <span id="dPan"></span><br>Wallet: ₹<span id="dWallet2"></span> via <span id="dPayMethod"></span><br><span style="font-size:9px;color:#16a34a">✓ 6 Step Verified - No Fake Account</span></div>
+</div>
+<label>Full Name</label><input id="eName"><label>City</label><input id="eCity"><label>Email</label><input id="eEmail">
+<button class="btn btn-primary" onclick="saveProfile()">Update Profile</button><p id="eMsg" style="font-size:11px;margin-top:8px"></p>
 </div>
 
-<button class="btn btn-grey" style="margin-top:14px" onclick="doLogout()">🚪 Logout</button>
-</div></div>
+<button class="btn btn-grey" style="margin-top:14px" onclick="doLogout()">🚪 Logout - Service Page Band Karo</button>
+</div>
+</div>
 
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";import {getFirestore, collection, query, where, getDocs, doc, updateDoc, addDoc, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 const firebaseConfig={apiKey:"AIzaSyCxPIcahQPr_DJVazVxlYfQIxRLLtGaNg",authDomain:"manavjansewakendra-ee14f.firebaseapp.com",projectId:"manavjansewakendra-ee14f",storageBucket:"manavjansewakendra-ee14f.firebasestorage.app",messagingSenderId:"556803528851",appId:"1:556803528851:web:a144573f17bbc8c6627d66",measurementId:"G-E3SKR6ZC1G"};
 const app=initializeApp(firebaseConfig);const db=getFirestore(app);
 let currentDocId=null, currentMobile=null;
-
-window.switchTab=(n)=>{
- document.getElementById('newReqTab').style.display=n===1?'block':'none';
- document.getElementById('ordersTab').style.display=n===2?'block':'none';
- document.getElementById('editTab').style.display=n===3?'block':'none';
- document.getElementById('tab1').className=n===1?'tab tab-active':'tab tab-inactive';
- document.getElementById('tab2').className=n===2?'tab tab-active':'tab tab-inactive';
- document.getElementById('tab3').className=n===3?'tab tab-active':'tab tab-inactive';
- if(n===2) loadOrders();
-};
-
+window.switchTab=(n)=>{document.getElementById('newReqTab').style.display=n===1?'block':'none';document.getElementById('ordersTab').style.display=n===2?'block':'none';document.getElementById('editTab').style.display=n===3?'block':'none';document.getElementById('tab1').className=n===1?'tab tab-active':'tab tab-inactive';document.getElementById('tab2').className=n===2?'tab tab-active':'tab tab-inactive';document.getElementById('tab3').className=n===3?'tab tab-active':'tab tab-inactive';if(n===2) loadOrders();};
 window.doLogin=async()=>{
  let m=document.getElementById('mob').value.trim(), p=document.getElementById('pass').value.trim();
- if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('msg').innerText='❌ Mobile sahi dalo';return;}
- if(p.length<3){document.getElementById('msg').innerText='❌ Password dalo';return;}
- document.getElementById('msg').innerText='🔐 Checking password...';
+ if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('msg').innerText='Valid mobile';return;}
+ document.getElementById('msg').innerText='Checking - Service Page Opening...';
  try{
   let q=query(collection(db,"retailers"),where("mobile","==",m));
   let snap=await getDocs(q);
-  if(snap.empty){document.getElementById('msg').innerHTML='❌ ID nahi mili. <a href="/">Banao</a>';return;}
+  if(snap.empty){document.getElementById('msg').innerHTML='ID nahi mili. <a href="/">6 Step se banao</a>';return;}
   let data=snap.docs[0].data(); let dbPass=data.password||m.slice(-4);
-  if(p!==dbPass){document.getElementById('msg').innerHTML='❌ <b>Password galat!</b> Mobile yaad hone se nahi khulegi!';return;}
+  if(p!==dbPass){document.getElementById('msg').innerHTML='Password galat!';return;}
   currentDocId=snap.docs[0].id; currentMobile=m;
-  localStorage.setItem('retailerMobile',m); localStorage.setItem('retailerName',data.name); localStorage.setItem('retailerId',data.retailerId);
-  document.getElementById('dName').innerText=data.name; document.getElementById('dCity').innerText=data.city; document.getElementById('dMob').innerText=data.mobile; document.getElementById('dId').innerText=data.retailerId;
-  document.getElementById('eName').value=data.name||''; document.getElementById('eCity').value=data.city||''; document.getElementById('eEmail').value=data.email||''; document.getElementById('eMob').value=data.mobile||'';
+  document.getElementById('dName').innerText=data.name; document.getElementById('dName2').innerText=data.name; document.getElementById('dFullName').innerText=data.name; document.getElementById('dCity').innerText=data.city; document.getElementById('dCity2').innerText=data.city; document.getElementById('dMob').innerText=data.mobile; document.getElementById('dMob2').innerText=data.mobile; document.getElementById('dId').innerText=data.retailerId; document.getElementById('dId2').innerText=data.retailerId; document.getElementById('dEmailSpan').innerText=data.email||''; document.getElementById('dAadhaar').innerText=data.aadhaar||'Verified'; document.getElementById('dPan').innerText=data.pan||'Verified'; document.getElementById('dWallet').innerText=data.walletAmount||'500'; document.getElementById('dWallet2').innerText=data.walletAmount||'500'; document.getElementById('dPayMethod').innerText=data.paymentMethod||'UPI QR'; document.getElementById('eName').value=data.name||''; document.getElementById('eCity').value=data.city||''; document.getElementById('eEmail').value=data.email||'';
   document.getElementById('loginDiv').style.display='none'; document.getElementById('dash').style.display='block'; switchTab(1); loadOrders();
  }catch(e){document.getElementById('msg').innerText='Error: '+e.message;}
 };
-
-async function loadOrders(){
- if(!currentMobile) return;
- try{
-  let q=query(collection(db,"orders"),where("retailerMobile","==",currentMobile));
-  let snap=await getDocs(q);
-  let html='<tr><th>Service</th><th>Customer</th><th>Status</th></tr>'; let tot=0;
-  if(snap.empty){html+='<tr><td colspan=3 style="text-align:center;color:#999;padding:15px">Koi request nahi<br><span style="font-size:9px">New Request tab se bhejo</span></td></tr>';}
-  snap.forEach(d=>{let x=d.data(); tot+=Number(x.profit||0); html+=`<tr><td>${x.service||''}<br><span style="font-size:9px;color:#666">₹${x.profit||''} profit</span></td><td>${x.customerName||''}<br><span style="font-size:9px">${x.customerMobile||''}</span></td><td>${x.status||'New'}<br><span style="font-size:8px">${x.date||''}</span></td></tr>`;});
-  document.getElementById('tO').innerHTML=html; document.getElementById('cO').innerText=snap.size; document.getElementById('cP').innerText='₹'+tot;
- }catch(e){console.log(e);}
-}
-
-window.sendOrder=async()=>{
- let s=document.getElementById('oService').value,cn=document.getElementById('oName').value.trim(),cm=document.getElementById('oMob').value.trim(),cdoc=document.getElementById('oDoc').value.trim();
- if(cn.length<3){document.getElementById('oMsg').innerText='❌ Customer naam likho';return;}
- if(!/^[6-9]\d{9}$/.test(cm)){document.getElementById('oMsg').innerText='❌ Customer mobile sahi';return;}
- document.getElementById('oMsg').innerText='📤 Request bhej rahe hai...';
- let profit=s.includes('43')?43:s.includes('30')?30:s.includes('35')?35:s.includes('40')?40:5;
- try{
-  await addDoc(collection(db,"orders"),{service:s,customerName:cn,customerMobile:cm,mobile:cm,retailerMobile:currentMobile,retailerId:localStorage.getItem('retailerId')||'',retailerName:localStorage.getItem('retailerName')||'',docNo:cdoc,profit:profit,date:new Date().toLocaleString('hi-IN'),createdAt:serverTimestamp(),status:'New - Secure'});
-  document.getElementById('oMsg').innerHTML='✅ <b>Request Bhej Di Gayi!</b><br>Admin jaldi kaam karega. Profit ₹'+profit+'<br><button onclick="switchTab(2)" style="background:#1a237e;color:#fff;border:none;padding:6px 14px;border-radius:15px;font-size:10px;margin-top:6px">📦 My Orders Dekho</button>';
-  document.getElementById('oName').value='';document.getElementById('oMob').value='';document.getElementById('oDoc').value='';
- }catch(err){document.getElementById('oMsg').innerText='Error: '+err.message;}
-};
-
-window.saveProfile=async()=>{
- if(!currentDocId){return;}
- let n=document.getElementById('eName').value.trim(), c=document.getElementById('eCity').value.trim(), e=document.getElementById('eEmail').value.trim(), p=document.getElementById('ePass').value.trim(), p2=document.getElementById('ePass2').value.trim();
- if(n.length<3){document.getElementById('eMsg').innerText='❌ Naam sahi';return;}
- if(p && p.length<4){document.getElementById('eMsg').innerText='❌ Password 4 digit ka';return;}
- if(p && p!==p2){document.getElementById('eMsg').innerText='❌ Password match nahi';return;}
- document.getElementById('eMsg').innerText='Saving...';
- try{let upd={name:n,city:c,email:e}; if(p) upd.password=p; await updateDoc(doc(db,"retailers",currentDocId),upd); document.getElementById('eMsg').innerHTML='✅ Secure Update!'+(p?' Naya Password: <b>'+p+'</b>':'');}catch(err){document.getElementById('eMsg').innerText='Error: '+err.message;}
-};
-
-window.doForgot=async()=>{
- let m=document.getElementById('fMob').value.trim();
- if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('fMsg').innerText='❌ Mobile sahi';return;}
- document.getElementById('fMsg').innerText='Dhoond rahe hai...';
- try{let q=query(collection(db,"retailers"),where("mobile","==",m)); let snap=await getDocs(q); if(snap.empty){document.getElementById('fMsg').innerHTML='❌ ID nahi mili';return;} let d=snap.docs[0].data(); let pwd=d.password||m.slice(-4)+' (Default)'; document.getElementById('fMsg').innerHTML='✅ ID: <b>'+d.retailerId+'</b><br>🔑 Password: <b>'+pwd+'</b><br>👤 '+d.name;}catch(e){document.getElementById('fMsg').innerText='Error: '+e.message;}
-};
-
-window.doLogout=()=>{currentDocId=null; currentMobile=null; localStorage.clear(); document.getElementById('dash').style.display='none'; document.getElementById('loginDiv').style.display='block'; document.getElementById('mob').value=''; document.getElementById('pass').value='';};
+async function loadOrders(){if(!currentMobile) return; try{let q=query(collection(db,"orders"),where("retailerMobile","==",currentMobile)); let snap=await getDocs(q); let html='<tr><th>Service</th><th>Customer</th><th>Status</th></tr>'; let tot=0; snap.forEach(d=>{let x=d.data(); tot+=Number(x.profit||0); html+=`<tr><td>${x.service||''}<br>₹${x.profit||''}</td><td>${x.customerName||''}<br>${x.customerMobile||''}</td><td>${x.status||'New'}<br>${x.date||''}</td></tr>`;}); document.getElementById('tO').innerHTML=html; document.getElementById('cO').innerText=snap.size; document.getElementById('cP').innerText='₹'+tot;}catch(e){}};
+window.sendOrder=async()=>{let s=document.getElementById('oService').value,cn=document.getElementById('oName').value.trim(),cm=document.getElementById('oMob').value.trim(),cg=document.getElementById('oGmail').value.trim(); if(cn.length<3){document.getElementById('oMsg').innerText='Customer name';return;} if(!/^[6-9]\d{9}$/.test(cm)){document.getElementById('oMsg').innerText='Valid mobile';return;} document.getElementById('oMsg').innerText='Submitting...'; let m=s.match(/Profit ₹(\d+)/); let profit=m?m[1]:5; try{await addDoc(collection(db,"orders"),{service:s,customerName:cn,customerMobile:cm,customerGmail:cg,retailerMobile:currentMobile,profit:profit,date:new Date().toLocaleString('en-IN'),createdAt:serverTimestamp(),status:'New'}); document.getElementById('oMsg').innerHTML='✅ Service Request Submitted! Profit ₹'+profit+' | UPI: 7351801904@ptsbi'; document.getElementById('oName').value='';document.getElementById('oMob').value='';document.getElementById('oGmail').value='';document.getElementById('oDoc').value='';}catch(e){document.getElementById('oMsg').innerText='Error';}};
+window.saveProfile=async()=>{if(!currentDocId) return; let n=document.getElementById('eName').value.trim(),c=document.getElementById('eCity').value.trim(),e=document.getElementById('eEmail').value.trim(); try{await updateDoc(doc(db,"retailers",currentDocId),{name:n,city:c,email:e}); document.getElementById('eMsg').innerText='Updated';}catch(err){document.getElementById('eMsg').innerText='Error';}};
+window.doForgot=async()=>{let m=document.getElementById('fMob').value.trim(); if(!/^[6-9]\d{9}$/.test(m)){document.getElementById('fMsg').innerText='Valid mobile';return;} try{let q=query(collection(db,"retailers"),where("mobile","==",m)); let snap=await getDocs(q); if(snap.empty){document.getElementById('fMsg').innerText='ID not found';return;} let d=snap.docs[0].data(); document.getElementById('fMsg').innerHTML='ID: <b>'+d.retailerId+'</b><br>Password: <b>'+(d.password||'****')+'</b>';}catch(e){document.getElementById('fMsg').innerText='Error';}};
+window.doLogout=()=>{currentDocId=null; currentMobile=null; document.getElementById('dash').style.display='none'; document.getElementById('loginDiv').style.display='block';};
 </script></body></html>
