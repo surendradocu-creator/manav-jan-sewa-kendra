@@ -67,6 +67,26 @@ table{width:100%;font-size:11px;border-collapse:collapse}th{background:#9a3412;c
 </div>
 <label>Full Name</label><input id="eName"><label>City</label><input id="eCity"><label>Email</label><input id="eEmail">
 <button class="btn btn-primary" onclick="saveProfile()">Update Profile</button><p id="eMsg" style="font-size:11px;margin-top:8px"></p>
+<label>Password Change (OTP se)</label>
+<div style="display:flex;gap:8px">
+<button class="btn btn-success" onclick="sendPassOTP()">OTP Bhejo</button>
+<span id="otpStatus" style="font-size:11px;color:green"></span>
+function sendPassOTP(){
+  // Retailer ka mobile = document.getElementById("dMob2").innerText
+  // Firebase se OTP jayega
+  document.getElementById("otpChangeBox").style.display="block";
+  document.getElementById("otpStatus").innerText="OTP bhej diya gaya!";
+}
+function verifyOTPAndChangePass(){
+  // OTP sahi hua to hi Firebase me password update hoga
+  // Purana password kahin bhi show nahi hoga
+}
+</div>
+<div id="otpChangeBox" style="display:none;margin-top:8px;border:1px solid #fed7aa;padding:10px;border-radius:10px">
+<input id="otpCode" placeholder="OTP dalo" style="margin-bottom:6px">
+<input id="newPassFinal" type="password" placeholder="Naya Password">
+<button class="btn btn-primary" onclick="verifyOTPAndChangePass()">Verify OTP & Change Password</button>
+</div>
 </div>
 
 <button class="btn btn-grey" style="margin-top:14px" onclick="doLogout()">🚪 Logout - Service Page Band Karo</button>
