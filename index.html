@@ -222,7 +222,12 @@ function showSection(id){
   el.classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   const btn=document.getElementById('btn-'+id); if(btn) btn.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+ function logout(){
+  localStorage.clear();
+  sessionStorage.clear();
+  alert('Logged Out Successfully!');
+  location.href='index.html';
+} window.scrollTo({top:0,behavior:'smooth'});
 }
 function toggleLang(){
  let lang=localStorage.getItem('lang')||'en'; lang=lang==='en'?'hi':'en';
