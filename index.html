@@ -41,17 +41,15 @@ input,select{width:100%;padding:10px 12px;border:1.5px solid #fed7aa;border-radi
 .footer{background:#431407;color:#fdba74;padding:32px 4%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;font-size:10px;margin-top:24px}
 @media(max-width:640px){.row,.qr-grid{grid-template-columns:1fr}}
 </style></head><body>
-
-
 <div class="logo-wrap">
 </div>
 <div class="header-actions">
-  <button class="btn btn-lang" onclick="toggleLang()">हिंदी</button>
-  <button class="btn btn-white" id="loginBtn" onclick="location.href='login.html'">Login</button>
-  <button class="btn btn-white" id="logoutBtn" onclick="logout()" style="display:none;background:#fee2e2;color:#991b1b">Logout</button>
-  <button class="btn btn-yellow" onclick="location.href='admin.html'">Admin</button>
+<button class="btn btn-lang" onclick="toggleLang()">हिंदी</button>
+<button class="btn btn-white" id="loginBtn" onclick="location.href='login.html'">Login</button>
+<button class="btn btn-white" id="logoutBtn" onclick="logout()" style="display:none;background:#fee2e2;color:#991b1b">Logout</button>
+<button class="btn btn-yellow" onclick="location.href='admin.html'">Admin</button>
 </div>
-  
+</div>
 
 <div class="tab-nav">
 <button class="tab-btn active" onclick="showSection('home')" id="btn-home"><i class="fa-solid fa-house"></i> Home</button>
@@ -59,6 +57,8 @@ input,select{width:100%;padding:10px 12px;border:1.5px solid #fed7aa;border-radi
 <button class="tab-btn" onclick="showSection('rating')" id="btn-rating"><i class="fa-solid fa-star"></i> Rating</button>
 <button class="tab-btn" onclick="showSection('qr')" id="btn-qr"><i class="fa-solid fa-qrcode"></i> QR & UPI</button>
 <button class="tab-btn" onclick="showSection('contact')" id="btn-contact"><i class="fa-solid fa-address-book"></i> Contact</button>
+<button class="tab-btn" onclick="showSection('register')" id="btn-register" style="background:#fef3c7;border-color:#fde68a"><i class="fa-solid fa-user-plus"></i> Retailer Registration - 6 Steps</button>
+</div>
   <button class="tab-btn" onclick="showSection('register')" id="btn-register" style="background:#fef3c7;border-color:#fbbf24"><i class="fa-solid fa-user-plus"></i> Retailer Registration - 6 Steps</button>
 </div>
 
