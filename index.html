@@ -224,7 +224,19 @@ function showSection(id){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   const btn=document.getElementById('btn-'+id); if(btn) btn.classList.add('active');
  function logout(){
-  localStorage.clear();
+ function checkLoginStatus(){
+  const isLogged = localStorage.getItem('formData') || localStorage.getItem('isLoggedIn') || localStorage.getItem('user') || localStorage.getItem('verified');
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  if(isLogged && loginBtn && logoutBtn){
+    loginBtn.style.display='none';
+    logoutBtn.style.display='inline-block';
+  } else if(loginBtn && logoutBtn){
+    loginBtn.style.display='inline-block';
+    logoutBtn.style.display='none';
+  }
+}
+window.addEventListener('load', checkLoginStatus); localStorage.clear();
   sessionStorage.clear();
   alert('Logged Out Successfully!');
   location.href='index.html';
