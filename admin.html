@@ -28,7 +28,7 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";import {getFirestore, collection, onSnapshot, query, orderBy, doc, getDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 const firebaseConfig={apiKey:"AIzaSyCxPIcahQPr_DJVazVxlYfQIxRLLtGaNg",authDomain:"manavjansewakendra-ee14f.firebaseapp.com",projectId:"manavjansewakendra-ee14f",storageBucket:"manavjansewakendra-ee14f.firebasestorage.app",messagingSenderId:"556803528851",appId:"1:556803528851:web:a144573f17bbc8c6627d66",measurementId:"G-E3SKR6ZC1G"};
 const app=initializeApp(firebaseConfig);const db=getFirestore(app);
-let defaultPass="7351801904";
+let defaultPass="Nagina@2468";
 async function getAdminPass(){try{let s=await getDoc(doc(db,"config","admin")); if(s.exists() && s.data().password) return s.data().password;}catch(e){} return defaultPass;}
 window.checkPass=async()=>{let p=document.getElementById('pass').value.trim(); let real=await getAdminPass(); if(p===real || p===defaultPass){document.getElementById('login').style.display='none';document.getElementById('panel').style.display='block';startLive();}else{document.getElementById('lmsg').innerText='Galat password';}};
 window.adminLogout=()=>{if(confirm('Logout?')){document.getElementById('panel').style.display='none';document.getElementById('login').style.display='flex';}};
